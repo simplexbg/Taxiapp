@@ -1,13 +1,22 @@
 // client/src/components/LogIn.js
 
-import React from 'react';
+import React, { useState } from 'react'; // changed
+//import React from 'react';
 import { Formik } from 'formik'; // new
 import {
   Breadcrumb, Button, Card, Form
 } from 'react-bootstrap'; // changed
-import { Link } from 'react-router-dom';
-
+import { Link, Navigate } from 'react-router-dom'; // changed
 function LogIn (props) {
+  // new begin
+  const [isSubmitted, setSubmitted] = useState(false);
+  const onSubmit = (values, actions) => setSubmitted(true);
+
+  if (isSubmitted) {
+    return <Navigate to='/' />;
+  }
+  // new end
+
   return (
     <>
       <Breadcrumb>
