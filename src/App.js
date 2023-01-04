@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+// client/src/App.js
+
+import React from 'react';
+import { Container, Navbar } from 'react-bootstrap'; // new
+import { LinkContainer } from 'react-router-bootstrap'; // new
+import { Outlet } from 'react-router-dom';
+
 import './App.css';
 
-function App() {
+// changed
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar bg='light' expand='lg' variant='light'>
+        <Container>
+          <LinkContainer to='/'>
+            <Navbar.Brand className='logo'>Taxi</Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle />
+          <Navbar.Collapse />
+        </Container>
+      </Navbar>
+      <Container className='pt-3'>
+        <Outlet />
+      </Container>
+    </>
   );
 }
 
